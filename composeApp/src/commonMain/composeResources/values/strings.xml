@@ -1,0 +1,9 @@
+<resources>
+    <string name="information">This application use Light/Dark theme</string>
+    <string name="app_dark_mode">Dark Mode</string>
+    <string name="exit">Exit</string>
+    <string name="exit_dialog_title">Exit</string>
+    <string name="exit_dialog_message">Are you sure to exit?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+</resources>
