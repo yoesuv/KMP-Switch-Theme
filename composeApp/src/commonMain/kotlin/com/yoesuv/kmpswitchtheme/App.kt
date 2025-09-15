@@ -16,22 +16,37 @@ import kmpswitchtheme.composeapp.generated.resources.app_name
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
+import androidx.compose.material3.darkColorScheme
+import androidx.compose.material3.lightColorScheme
+import androidx.compose.ui.graphics.Color
+
+private val LightScheme = lightColorScheme(
+    primary = Color.Green
+)
+
+private val DarkScheme = darkColorScheme(
+    primary = Color.Green
+)
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 @Preview
 fun App() {
-    MaterialTheme {
-        val navController = rememberNavController()
-        Scaffold(
-            topBar = {
-                TopAppBar(
-                    title = { Text(stringResource(Res.string.app_name)) }
-                )
-            }
-        ) { innerPadding ->
-            NavHost(navController = navController, startDestination = AppRoute.Home) {
-                composable<AppRoute.Home> {
-                    HomeScreen(innerPadding = innerPadding)
+    AppEnvironment {
+        val isDark = LocalAppTheme.current
+        MaterialTheme(colorScheme = if (isDark) DarkScheme else LightScheme) {
+            val navController = rememberNavController()
+            Scaffold(
+                topBar = {
+                    TopAppBar(
+                        title = { Text(stringResource(Res.string.app_name)) }
+                    )
+                }
+            ) { innerPadding ->
+                NavHost(navController = navController, startDestination = AppRoute.Home) {
+                    composable<AppRoute.Home> {
+                        HomeScreen(innerPadding = innerPadding, isDark = isDark)
+                    }
                 }
             }
         }

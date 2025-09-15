@@ -26,8 +26,8 @@ import kmpswitchtheme.composeapp.generated.resources.information
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
-fun HomeScreen(innerPadding: PaddingValues) {
-    val viewModel = viewModel { HomeViewModel() }
+fun HomeScreen(innerPadding: PaddingValues, isDark: Boolean) {
+    val viewModel = viewModel { HomeViewModel(initialIsDark = isDark) }
     val isDarkModeEnabled by viewModel.isDarkModeEnabled.collectAsState()
     
     Column(
