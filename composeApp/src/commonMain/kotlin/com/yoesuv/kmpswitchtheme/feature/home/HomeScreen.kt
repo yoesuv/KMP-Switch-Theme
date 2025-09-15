@@ -13,9 +13,12 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import kmpswitchtheme.composeapp.generated.resources.Res
 import kmpswitchtheme.composeapp.generated.resources.app_dark_mode
 import kmpswitchtheme.composeapp.generated.resources.exit
@@ -24,6 +27,9 @@ import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun HomeScreen(innerPadding: PaddingValues) {
+    val viewModel = viewModel { HomeViewModel() }
+    val isDarkModeEnabled by viewModel.isDarkModeEnabled.collectAsState()
+    
     Column(
         modifier = Modifier
             .padding(innerPadding)
@@ -40,9 +46,12 @@ fun HomeScreen(innerPadding: PaddingValues) {
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             Text(stringResource(Res.string.app_dark_mode))
-            Switch(checked = true, onCheckedChange = {
-
-            })
+            Switch(
+                checked = isDarkModeEnabled,
+                onCheckedChange = { enabled ->
+                    viewModel.onDarkModeToggle(enabled)
+                }
+            )
         }
         Spacer(modifier = Modifier.height(16.dp))
         Button(
