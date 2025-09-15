@@ -1,4 +1,5 @@
 <resources>
+    <string name="app_name">KMP Switch Theme</string>
     <string name="information">This application use Light/Dark theme</string>
     <string name="app_dark_mode">Dark Mode</string>
     <string name="exit">Exit</string>
