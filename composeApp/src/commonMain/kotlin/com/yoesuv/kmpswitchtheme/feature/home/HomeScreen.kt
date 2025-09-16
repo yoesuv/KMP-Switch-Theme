@@ -17,7 +17,10 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import kmpswitchtheme.composeapp.generated.resources.Res
 import kmpswitchtheme.composeapp.generated.resources.app_dark_mode
@@ -29,7 +32,7 @@ import org.jetbrains.compose.resources.stringResource
 fun HomeScreen(innerPadding: PaddingValues, isDark: Boolean) {
     val viewModel = viewModel { HomeViewModel(initialIsDark = isDark) }
     val isDarkModeEnabled by viewModel.isDarkModeEnabled.collectAsState()
-    
+
     Column(
         modifier = Modifier
             .padding(innerPadding)
@@ -58,7 +61,12 @@ fun HomeScreen(innerPadding: PaddingValues, isDark: Boolean) {
             onClick = { },
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text(stringResource(Res.string.exit))
+            Text(
+                stringResource(Res.string.exit), style = TextStyle(
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Medium,
+                )
+            )
         }
     }
 }

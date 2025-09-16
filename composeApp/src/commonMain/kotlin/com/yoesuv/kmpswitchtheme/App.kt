@@ -10,23 +10,13 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.yoesuv.kmpswitchtheme.core.route.AppRoute
+import com.yoesuv.kmpswitchtheme.core.theme.DarkScheme
+import com.yoesuv.kmpswitchtheme.core.theme.LightScheme
 import com.yoesuv.kmpswitchtheme.feature.home.HomeScreen
 import kmpswitchtheme.composeapp.generated.resources.Res
 import kmpswitchtheme.composeapp.generated.resources.app_name
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
-
-import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.lightColorScheme
-import androidx.compose.ui.graphics.Color
-
-private val LightScheme = lightColorScheme(
-    primary = Color.Green
-)
-
-private val DarkScheme = darkColorScheme(
-    primary = Color.Green
-)
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
