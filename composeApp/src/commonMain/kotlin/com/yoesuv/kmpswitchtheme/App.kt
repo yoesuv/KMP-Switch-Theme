@@ -22,6 +22,9 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 @Composable
 @Preview
 fun App() {
+    // Initialize theme from saved preferences
+    initializeTheme()
+    
     AppEnvironment {
         val isDark = LocalAppTheme.current
         MaterialTheme(colorScheme = if (isDark) DarkScheme else LightScheme) {
