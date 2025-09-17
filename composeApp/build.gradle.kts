@@ -42,6 +42,8 @@ kotlin {
             implementation(libs.androidx.lifecycle.runtimeCompose)
             implementation(libs.kotlinx.serialization.json)
             implementation(libs.navigation.compose)
+            implementation(libs.multiplatformSettings)
+            implementation(libs.multiplatformSettingsNoArg)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
