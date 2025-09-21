@@ -15,6 +15,7 @@ var customAppThemeIsDark by mutableStateOf<Boolean?>(null)
 fun initializeTheme() {
     if (customAppThemeIsDark == null) {
         customAppThemeIsDark = AppSettings.getThemeState(default = false)
+        setStatusBarLightIcons(customAppThemeIsDark == false)
     }
 }
 
