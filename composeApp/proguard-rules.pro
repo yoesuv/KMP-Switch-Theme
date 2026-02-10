@@ -1,0 +1,3 @@
+-keep class com.yoesuv.kmpswitchtheme.core.route.AppRoute { *; }
+-keepclassmembers class com.yoesuv.kmpswitchtheme.core.route.AppRoute { *; }
+-keepclassmembers class com.yoesuv.kmpswitchtheme.core.route.AppRoute$* { *; }
